@@ -4,6 +4,7 @@ import { AgeView } from "./views/AgeView.tsx";
 import { DistView } from "./views/DistView.tsx";
 import { TenureView } from "./views/TenureView.tsx";
 import { useUrlState } from "./hooks/useUrlState.ts";
+import { SeriesBar, SeriesFooter } from "./components/Brand.tsx";
 
 const VIEWS = [
   { id: "industry", label: "業種", hint: "平均給与の推移", ready: true },
@@ -22,6 +23,7 @@ export function App() {
   return (
     <div className="min-h-dvh">
       <header className="border-b border-rule bg-paper/85 backdrop-blur-sm">
+        <SeriesBar />
         <div className="mx-auto flex w-full max-w-[1240px] flex-wrap items-end justify-between gap-4 px-6 pt-5">
           <div>
             <h1 className="text-[15px] font-semibold tracking-tight">
@@ -64,12 +66,7 @@ export function App() {
         出典: 国税庁「民間給与実態統計調査」（e-Stat 経由で取得）。
         1年を通じて勤務した民間の給与所得者。正社員とそれ以外を分けていない。
         公務員・自営業は含まない。金額は平均給与（給与総額÷人員）。
-        <a
-          href="https://visualizing.jp/"
-          className="mt-2 block w-fit transition-colors duration-150 hover:text-muted"
-        >
-          visualizing.jp
-        </a>
+        <SeriesFooter />
       </footer>
     </div>
   );
